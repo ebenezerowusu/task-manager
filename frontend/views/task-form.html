@@ -1,0 +1,17 @@
+<h2>{{ task.id ? "Edit Task" : "Create Task" }}</h2>
+<form ng-submit="saveTask()">
+    <label>Title:</label>
+    <input type="text" ng-model="task.title" required />
+
+    <label>Description:</label>
+    <textarea ng-model="task.description"></textarea>
+
+    <label>Status:</label>
+    <select ng-model="task.status">
+        <option value="pending">Pending</option>
+        <option value="in_progress">In Progress</option>
+        <option value="completed">Completed</option>
+    </select>
+
+    <button type="submit">Save</button>
+</form>

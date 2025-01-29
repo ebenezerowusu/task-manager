@@ -1,0 +1,9 @@
+<h2>Task List</h2>
+<a href="#/create">Create Task</a>
+<ul>
+    <li ng-repeat="task in tasks">
+        <strong>{{ task.title }}</strong> - {{ task.status }}
+        <a href="#/edit/{{ task.id }}">Edit</a> |
+        <button ng-click="deleteTask(task.id)">Delete</button>
+    </li>
+</ul>
