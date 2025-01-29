@@ -1,0 +1,49 @@
+<div
+  *ngFor="let alert of alerts"
+  role="alert"
+  class="fixed max-w-xl pr-12 gap-4 flex flex-col w-full py-7 px-3 rounded-lg"
+  [ngClass]="getPositionClasses(alert.position)"
+  [class]="getAlertClasses(alert.type)"
+>
+  <p class="flex text-[1.5rem] gap-4 items-center">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="1.3em"
+      height="1.3em"
+      viewBox="0 0 24 24"
+    >
+      <path
+        fill="currentColor"
+        fill-rule="evenodd"
+        d="M12 21a9 9 0 1 0 0-18a9 9 0 0 0 0 18m-.232-5.36l5-6l-1.536-1.28l-4.3 5.159l-2.225-2.226l-1.414 1.414l3 3l.774.774z"
+        clip-rule="evenodd"
+      />
+    </svg>
+    {{ alert.title }}
+  </p>
+
+  <p class="ml-12 text-[1.3rem]">
+    {{ alert.message }}
+  </p>
+
+  <button
+    (click)="closeAlert(alert)"
+    class="flex items-center justify-center transition-all w-10 h-10 rounded-md absolute top-2 right-2"
+    type="button"
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      class="h-7 w-7"
+      stroke-width="2"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        d="M6 18L18 6M6 6l12 12"
+      ></path>
+    </svg>
+  </button>
+</div>
