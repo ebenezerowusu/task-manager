@@ -1,4 +1,3 @@
-// app.js
 var taskManagementApp = angular.module('taskManagementApp', ['ngRoute']);
 
 taskManagementApp.config(function ($routeProvider) {
@@ -11,11 +10,8 @@ taskManagementApp.config(function ($routeProvider) {
             templateUrl: 'views/register.html',
             controller: 'AuthController'
         })
-        .when('/task', {
-            templateUrl: 'views/tasks.html',
+        .when('/tasks', {
+            templateUrl: 'views/tasks-list.html',
             controller: 'TaskController'
         })
-        .otherwise({
-            redirectTo: '/'
-        });
 });
