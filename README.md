@@ -87,6 +87,7 @@ A full-stack application for managing tasks with user authentication, built usin
 ### Configuration
 ## CORS Setup (Backend)
     Ensure config/cors.php includes:
+    
     ```php
     'paths' => ['api/*'],
     'allowed_origins' => ['http://localhost:8001'],
