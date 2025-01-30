@@ -102,3 +102,34 @@ A full-stack application for managing tasks with user authentication, built usin
     ``ini
     SANCTUM_STATEFUL_DOMAINS=localhost:8001
     SESSION_DOMAIN=localhost
+
+## Running the Application
+
+1. **Backend**
+    ```bash
+    php artisan serve --port=8000
+
+2. **Frontend**
+    ```bash
+    live-server --port=8001
+
+3. **Access the application at:**
+http://localhost:8001 or http://127.0.0.1:8001/
+
+
+## Testing
+1. **Create User**
+    - Navigate to http://localhost:8001/#!/register
+    - Enter name, email, and password
+
+2. **Login**
+    - Use registered credentials at http://localhost:8001/#!/login
+
+3. **Manage Tasks**
+ - Create tasks with title, description, priority, status, and deadline
+ - Filter tasks using the dropdowns
+ - Edit/Delete existing tasks
+
+ ### Sample Credentials
+  - eo199124@gmail.com
+  - qwerty1212
