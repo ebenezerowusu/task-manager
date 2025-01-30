@@ -23,6 +23,11 @@ class TaskController extends Controller
         return response()->json(['data' => $tasks]);
     }
 
+    public function show(Task $task)
+    {
+        return response()->json(['data' => $task]);
+    }
+
     public function store(Request $request)
     {
         $validated = $request->validate([
