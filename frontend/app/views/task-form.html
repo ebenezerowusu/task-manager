@@ -1,4 +1,60 @@
-<div class="container">
+<header class="bg-blue-600 shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold tracking-tight text-white">
+        <a href="#!/tasks" class="text-white hover:text-black flex items-center">
+            <svg class="w-10 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+            </svg>
+            <span class="ml-1">Go Back</span>
+        </a>
+      </h2>
+    </div>
+  </header>
+    <div class="container mx-auto px-3 py-8 max-w-lg">
+
+        <div class="bg-white rounded-lg shadow-sm p-8">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">{{newTask.id ? 'Edit' : 'Create'}} Task</h1>
+
+            <form ng-submit="newTask.id ? updateTask(newTask) : createTask()" class="space-y-6">
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Title</label>
+                    <input type="text" ng-model="newTask.title" placeholder="Title" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Description</label>
+                    <textarea ng-model="newTask.description" placeholder="Description" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500"></textarea>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Prioritie</label>
+                    <select ng-model="newTask.priority" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                        <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Prioritie</label>
+                    <select ng-model="newTask.status" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                        <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 text-sm font-medium mb-2">Deadline</label>
+                    <input type="date" ng-model="newTask.deadline" placeholder="Deadline" required class="w-full border border-gray-300 rounded-lg py-3 px-4 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500">
+                </div>
+
+                <button class="w-full bg-blue-600 text-white py-3 px-4 rounded-lg font-medium hover:bg-blue-700 transition-colors">
+                    Save
+                </button>
+            </form>
+
+            
+        </div>
+    </div>
+
+<!-- <div class="container">
     <h2>{{task.id ? 'Edit' : 'Create'}} Task</h2>
     <form ng-submit="task.id ? updateTask(task) : createTask()">
         <input type="text" ng-model="newTask.title" placeholder="Title" required>
@@ -12,4 +68,4 @@
         <input type="date" ng-model="newTask.deadline" required>
         <button type="submit">Save</button>
     </form>
-</div>
+</div> -->

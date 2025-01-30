@@ -54,8 +54,10 @@ class TaskController extends Controller
             'description' => 'nullable|string',
             'priority' => 'sometimes|in:Low,Medium,High',
             'status' => 'sometimes|in:New,In-Progress,Completed,Cancelled,Archived,Pending',
-            'deadline' => 'sometimes|date'
+            'deadline' => 'required|date_format:Y-m-d',
         ]);
+        
+        $validated['deadline'] = \Carbon\Carbon::parse($validated['deadline']);
 
         $task->update($validated);
 
