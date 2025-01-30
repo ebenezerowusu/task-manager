@@ -4,56 +4,77 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function __construct()
     {
-        $tasks = Auth::user()->tasks;
-        return response()->json($tasks);
+        $this->middleware('auth:sanctum');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    public function index(Request $request)
+    {
+        $tasks = $request->user()->tasks()
+            ->when($request->priority, fn($q) => $q->where('priority', $request->priority))
+            ->when($request->status, fn($q) => $q->where('status', $request->status))
+            ->when($request->deadline, fn($q) => $q->where('deadline', '<=', $request->deadline))
+            ->get();
+
+        return response()->json(['data' => $tasks]);
+    }
+
     public function store(Request $request)
     {
-        $task = new Task($request->all());
-        $task->user_id = Auth::id();
-        $task->save();
-        return response()->json($task, 201);
+        $validated = $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'nullable|string',
+            'priority' => 'required|in:Low,Medium,High',
+            'status' => 'required|in:New,In-Progress,Completed,Cancelled,Done,Archived,Pending',
+            'deadline' => 'required|date_format:Y-m-d',
+        ]);
+
+        $validated['deadline'] = \Carbon\Carbon::parse($validated['deadline']);
+
+        $task = $request->user()->tasks()->create($validated);
+
+        return response()->json(['data' => $task], 201);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Task $task)
-    {
-        $this->authorize('view', $task);
-        return response()->json($task);
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, Task $task)
     {
         $this->authorize('update', $task);
-        $task->update($request->all());
-        return response()->json($task);
+
+        $validated = $request->validate([
+            'title' => 'sometimes|string|max:255',
+            'description' => 'nullable|string',
+            'priority' => 'sometimes|in:Low,Medium,High',
+            'status' => 'sometimes|in:New,In-Progress,Completed,Cancelled,Archived,Pending',
+            'deadline' => 'sometimes|date'
+        ]);
+
+        $task->update($validated);
+
+        return response()->json(['data' => $task]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Task $task)
     {
         $this->authorize('delete', $task);
         $task->delete();
-        return response()->json(null, 204);
+        return response()->noContent();
+    }
+
+    public function getPriorities()
+    {
+        return response()->json([
+            'data' => ['Low', 'Medium', 'High']
+        ]);
+    }
+
+    public function getStatuses()
+    {
+        return response()->json([
+            'data' => ['New', 'In-Progress', 'Completed', 'Cancelled','Archived','Pending']
+        ]);
     }
 }

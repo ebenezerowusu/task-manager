@@ -1,0 +1,15 @@
+<div class="container">
+    <h2>{{task.id ? 'Edit' : 'Create'}} Task</h2>
+    <form ng-submit="task.id ? updateTask(task) : createTask()">
+        <input type="text" ng-model="newTask.title" placeholder="Title" required>
+        <textarea ng-model="newTask.description" placeholder="Description"></textarea>
+        <select ng-model="newTask.priority" required>
+            <option ng-repeat="priority in priorities" value="{{priority}}">{{priority}}</option>
+        </select>
+        <select ng-model="newTask.status" required>
+            <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+        </select>
+        <input type="date" ng-model="newTask.deadline" required>
+        <button type="submit">Save</button>
+    </form>
+</div>

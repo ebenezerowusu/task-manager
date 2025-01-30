@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Task Manager</h1>
+    <button ng-click="logout()" class="btn-logout">Logout</button>
+    
+    <div class="filters">
+        <select ng-model="filters.status">
+            <option value="">All Statuses</option>
+            <option ng-repeat="status in statuses" value="{{status}}">{{status}}</option>
+        </select>
+        
+        <select ng-model="filters.priority">
+            <option value="">All Priorities</option>
+            <option ng-repeat="priority in priorities track by $index" 
+                    value="{{priority}}">
+                {{priority}}
+            </option>
+        </select>
+        
+        <input type="date" ng-model="filters.deadline">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>Status</th>
+                <th>Deadline</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="task in tasks | taskFilter:filters">
+                <td>{{task.title}}</td>
+                <td>{{task.description}}</td>
+                <td>{{task.priority}}</td>
+                <td>{{task.status}}</td>
+                <td>{{task.deadline | date:'mediumDate'}}</td>
+                <td>
+                    <button ng-click="goToEditTask(task.id)" class="btn-edit">Edit</button>
+                    <button ng-click="deleteTask(task.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <a href="#!/tasks/new" class="btn-add">Add New Task</a>
+</div>

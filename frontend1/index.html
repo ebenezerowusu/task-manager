@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="taskManagementApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="app.js"></script>
+
+    
+    <link href="./output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="services/TaskService.js"></script>
+    <script src="services/AuthService.js"></script>
+    <script src="controllers/AuthController.js"></script>
+    <script src="controllers/TaskController.js"></script>
+</head>
+<body>
+    <div ng-view></div>
+    <h1 class="text-3xl font-bold underline">
+        Hello world!
+      </h1>
+</body>
+</html>
