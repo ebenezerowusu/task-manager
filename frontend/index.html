@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="taskManagerApp">
+<head>
+    <title>Task Manager</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
+    <link rel="stylesheet" href="app/css/styles.css">
+    <!-- App Files -->
+    <script src="app/js/app.js"></script>
+    <script src="app/js/controllers/authController.js"></script>
+    <script src="app/js/controllers/taskController.js"></script>
+    <script src="app/js/services/authService.js"></script>
+    <script src="app/js/services/taskService.js"></script>
+    <script src="app/js/filters/taskFilters.js"></script>
+</head>
+<body>
+    <div ng-view></div>
+</body>
+</html>
