@@ -4,7 +4,6 @@ function($routeProvider, $httpProvider, $locationProvider) {
     
     $locationProvider.hashPrefix('!');
     
-    
     $routeProvider
     .when('/login', {
         templateUrl: 'app/views/login.html',
