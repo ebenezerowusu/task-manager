@@ -5,12 +5,11 @@ function($scope, $routeParams, taskService, authService, $location) {
     $scope.filters = {};
     $scope.newTask = {};
     
-    // Initialize
     taskService.getTasks().then(response => {
         if($routeParams.id) {
             taskService.getTask($routeParams.id).then(response => {
                 $scope.newTask = response.data.data;
-                // Convert date to input format
+                
                 $scope.newTask.deadline = new Date($scope.newTask.deadline).toISOString().split('T')[0];
             });
         }
@@ -18,7 +17,6 @@ function($scope, $routeParams, taskService, authService, $location) {
         $scope.tasks = response.data.data;
     });
 
-    // Get priorities and statuses from backend
     taskService.getPriorities().then(response => {
         $scope.priorities = response.data.data;
     });
@@ -31,7 +29,7 @@ function($scope, $routeParams, taskService, authService, $location) {
         $location.path('/tasks/' + id + '/edit');
     };
 
-    // Task Actions
+
     $scope.createTask = function () {
         const deadline = new Date($scope.newTask.deadline);
         $scope.newTask.deadline = deadline.toISOString().split('T')[0];
