@@ -2,7 +2,12 @@
 
 A full-stack application for managing tasks with user authentication, built using **Laravel** (backend API) and **AngularJS** (frontend).
 
-![Task Manager Screenshot](screenshot.png) <!-- Add a screenshot later -->
+![Macbook-Air-localhost](https://github.com/user-attachments/assets/526e9af2-07cf-4e95-a4fe-2b6483eeb7ef)
+![Macbook-Air-localhost (3)](https://github.com/user-attachments/assets/c0c02692-1e99-471b-aab5-38617b13cd0b)
+![Macbook-Air-localhost (2)](https://github.com/user-attachments/assets/6173b28d-8140-4e75-80be-3ef906b82d6e)
+![Macbook-Air-localhost (1)](https://github.com/user-attachments/assets/e50748b2-8420-42ea-b4a1-7a45f589a144)
+![Macbook-Air-127 0 0 1](https://github.com/user-attachments/assets/35eab68d-6da0-4225-a74d-5b1127d9783d)
+
 
 ## Features
 
