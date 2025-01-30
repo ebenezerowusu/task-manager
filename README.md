@@ -33,7 +33,7 @@ A full-stack application for managing tasks with user authentication, built usin
 
 **Frontend**  
 - AngularJS
-- HTML5/Tailwind 
+- HTML/Tailwindcss
 
 ## Installation
 
