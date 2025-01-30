@@ -92,15 +92,14 @@ A full-stack application for managing tasks with user authentication, built usin
 
 ## Configuration
 ### CORS Setup (Backend)
-    Ensure config/cors.php includes:
-    
-    ``php
+  Ensure config/cors.php includes:
+
     'paths' => ['api/*'],
     'allowed_origins' => ['http://localhost:8001'],
     'allowed_methods' => ['*'],
 
 ### Environment Variables (Backend)
-    ``ini
+
     SANCTUM_STATEFUL_DOMAINS=localhost:8001
     SESSION_DOMAIN=localhost
 
