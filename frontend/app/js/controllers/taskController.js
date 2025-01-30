@@ -42,10 +42,17 @@ function($scope, $routeParams, taskService, authService, $location) {
         });
     };
 
-    $scope.updateTask = function(task) {
-        taskService.updateTask(task).catch(error => {
+    $scope.updateTask = function (task) {
+        const formattedTask = angular.copy(task);
+        formattedTask.deadline = new Date(formattedTask.deadline).toISOString().split('T')[0];
+        
+        taskService.updateTask(formattedTask).then(() => {
+            $location.path('/tasks');
+            alert('Update Successful');
+        }).catch(error => {
             alert('Error updating task: ' + error.data.message);
         });
+        
     };
 
     $scope.deleteTask = function(taskId) {
