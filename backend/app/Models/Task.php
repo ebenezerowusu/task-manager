@@ -25,8 +25,14 @@ class Task extends Model
         'user_id'
     ];
 
+    /**
+     * Get the user that owns the task.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
     public function user()
     {
+        // Define the relationship between Task and User models
         return $this->belongsTo(User::class);
     }
 }
