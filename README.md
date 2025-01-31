@@ -6,7 +6,7 @@ A full-stack application for managing tasks with user authentication, built usin
 ![Macbook-Air-127 0 0 1](https://github.com/user-attachments/assets/35eab68d-6da0-4225-a74d-5b1127d9783d)
 ![Macbook-Air-localhost (3)](https://github.com/user-attachments/assets/c0c02692-1e99-471b-aab5-38617b13cd0b)
 ![Macbook-Air-localhost (2)](https://github.com/user-attachments/assets/6173b28d-8140-4e75-80be-3ef906b82d6e)
-![Macbook-Air-localhost (1)](https://github.com/user-attachments/assets/e50748b2-8420-42ea-b4a1-7a45f589a144)
+![Macbook-Air-127 0 0 1 (1)](https://github.com/user-attachments/assets/6fa786fc-f124-4eae-bf72-ef01d307165f)
 
 
 
