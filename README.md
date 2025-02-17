@@ -1,4 +1,4 @@
-# Task Management Service
+# Task Management Service - **Laravel** (backend API) and **AngularJS** (frontend)
 
 A full-stack application for managing tasks with user authentication, built using **Laravel** (backend API) and **AngularJS** (frontend).
 
